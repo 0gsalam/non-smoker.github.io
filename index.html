@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Smoker App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .label-text {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h1>Non-Smoker Statistics</h1>
+
+    <div class="label-text" id="label1"></div>
+    <div class="label-text" id="label2"></div>
+    <div class="label-text" id="label3"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var smoke = new Date(2024, 0, 1);
+            var non = new Date();
+            var smokeDays = smoke.getDate();
+            var nonDays = non.getDate();
+            var nonSmoker = nonDays - smokeDays;
+            var text1 = "Непушач от " + nonSmoker + " дни.";
+            document.getElementById("label1").innerText = text1;
+
+            var money = 0;
+            for (var i = 0; i < nonSmoker; i += 1) {
+                money += 2.75;
+            }
+            var text2 = "Спестени пари " + money.toFixed(2) + " лева.";
+            document.getElementById("label2").innerText = text2;
+
+            var cigs = 0;
+            for (var i = 0; i < nonSmoker; i++) {
+                cigs += 10;
+            }
+            var text3 = "Неизпушени цигари " + cigs + ".";
+            document.getElementById("label3").innerText = text3;
+        });
+    </script>
+</div>
+
+</body>
+</html>
